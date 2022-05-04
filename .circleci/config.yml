@@ -11,6 +11,13 @@ jobs:
       - checkout
       - aws-cli/setup
       - run:
+          name: env
+          command: |
+            echo bucket= $S3_BUCKET_FRONTEND
+            echo EB_BUCKET= $EB_BUCKET
+            echo EB_APP= $EB_APP
+            echo EB_ENV= $EB_ENV
+      - run:
           name: Install Front-End Dependencies
           command: |
             npm run frontend:install
