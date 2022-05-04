@@ -13,10 +13,10 @@ jobs:
           name: Install api Dependencies
           command: |
             npm run api:install
-      - run:
-          name: Front-End Lint
-          command: |
-            npm run frontend:lint
+      # - run:
+      #     name: Front-End Lint
+      #     command: |
+      #       npm run frontend:lint
       - run:
           name: Front-End Unit Tests
           command: |
@@ -35,7 +35,6 @@ jobs:
             npm run api:build
 
 
-workflows:
-  docker-build:
-    jobs:
-      - docker-build
+Deployment:
+  docker:
+    - image:    
