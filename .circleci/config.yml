@@ -35,6 +35,7 @@ jobs:
             npm run api:build
 
 
-Deployment:
-  docker:
-    - image:    
+workflows:
+  docker-build:
+    jobs:
+      - docker-build
