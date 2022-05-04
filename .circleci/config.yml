@@ -13,32 +13,32 @@ jobs:
       - checkout
       - aws-cli/setup
       - eb/setup
-      # - run:
-      #     name: Install Front-End Dependencies
-      #     command: |
-      #       npm run frontend:install
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
       - run:
           name: Install api Dependencies
           command: |
             npm run api:install
-      # - run:
-      #     name: Front-End Lint
-      #     command: |
-      #       npm run frontend:lint
-      # # builds
-      # - run:
-      #     name: Front-End Build
-      #     command: |
-      #       npm run frontend:build
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
+      # builds
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
       - run:
           name: Api Build
           command: |-
             npm run api:build 
-      # #deployments sending env variables in package.json api:build
-      # - run:
-      #     name: Deploy Front-End App
-      #     command: |
-      #       aws s3 cp --recursive --acl public-read ./udagram-frontend/www $S3_BUCKET_FRONTEND
+      # deployments
+      - run:
+          name: Deploy Front-End App
+          command: |
+            aws s3 cp --recursive --acl public-read ./udagram-frontend/www $S3_BUCKET_FRONTEND
       - run:
           name: Deploy Api App
           command: |-
