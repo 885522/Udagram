@@ -7,6 +7,7 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+    # install dependencies
       - node/install
       - checkout
       - aws-cli/setup
@@ -22,14 +23,16 @@ jobs:
           name: Front-End Lint
           command: |
             npm run frontend:lint
-      # - run:
-      #     name: Front-End Unit Tests
-      #     command: |
-      #       npm run frontend:test
-      # - run:
-      #     name: Front-End E2E
-      #     command: |
-      #       npm run frontend:e2e
+      # tests
+      - run:
+          name: Front-End Unit Tests
+          command: |
+            npm run frontend:test
+      - run:
+          name: Front-End E2E
+          command: |
+            npm run frontend:e2e
+      # builds
       - run:
           name: Front-End Build
           command: |
@@ -38,6 +41,7 @@ jobs:
           name: Api Build
           command: |-
             npm run api:build 
+      # deployments sending env variables in package.json api:build
       - run:
           name: Deploy Front-End App
           command: |
