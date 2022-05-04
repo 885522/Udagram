@@ -39,10 +39,6 @@ jobs:
           command: |-
             npm run api:build 
       - run:
-          name: send ENV
-          command: |
-            eb setenv
-      - run:
           name: Deploy Front-End App
           command: |
             aws s3 cp --recursive --acl public-read ./www $S3_BUCKET_FRONTEND
