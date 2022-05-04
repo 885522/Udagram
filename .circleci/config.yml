@@ -32,4 +32,4 @@ jobs:
       - run:
           name: Api Build
           command: |  
-          npm run api:build
+            npm run api:build
