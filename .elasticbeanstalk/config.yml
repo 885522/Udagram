@@ -8,7 +8,7 @@ environment-defaults:
 global:
   application_name: Udagram
   default_ec2_keyname: null
-  default_platform: Node.js 14 running on 64bit Amazon Linux 2
+  default_platform: Node.js 16 running on 64bit Amazon Linux 2
   default_region: eu-west-1
   include_git_submodules: true
   instance_profile: null
