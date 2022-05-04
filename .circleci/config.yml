@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  Integration:
+  docker-build:
     docker:
       - image: circleci/node:14
     steps:
@@ -33,3 +33,9 @@ jobs:
           name: Api Build
           command: |  
             npm run api:build
+
+
+workflows:
+  docker-build:
+    jobs:
+      - docker-build
